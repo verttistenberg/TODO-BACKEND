@@ -10,5 +10,5 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/', todoRouter)
 
-app.listen(process.env.PORT || 3001, () =>
+app.listen(process.env.PORT || 10000, () =>
     console.log('Server running on port ' + process.env.PORT))

@@ -5,7 +5,7 @@ todoRouter.get('/', async (req, res) => {
         res.status(200).json(rows)
     } catch (error) {
         console.log('GET error:', error)
-        res.status(500).json({ error: error.message })  // use error.message
+        res.status(500).json({ error: error.message })
     }
 })
 
@@ -17,7 +17,7 @@ todoRouter.post('/new', async (req, res) => {
         res.status(200).json({ id: result.rows[0].id })
     } catch (error) {
         console.log('POST error:', error)
-        res.status(500).json({ error: error.message })  // use error.message
+        res.status(500).json({ error: error.message })
     }
 })
 
@@ -30,7 +30,7 @@ todoRouter.delete('/delete/:id', async (req, res) => {
         res.status(200).json({ id: id })
     } catch (error) {
         console.log('DELETE error:', error)
-        res.status(500).json({ error: error.message })  // use error.message
+        res.status(500).json({ error: error.message })
     }
 })
 todoRouter.delete('/delete/:id', async (req, res) => {
