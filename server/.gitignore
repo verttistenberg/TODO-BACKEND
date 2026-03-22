@@ -3,6 +3,5 @@ node_modules/
 .env*
 .flaskenv*
 !.env.project
-!.env.vault
 .env.previous
 .env.vault
