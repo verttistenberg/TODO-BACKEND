@@ -1,3 +1,7 @@
+const express = require('express')
+const { query } = require('../helpers/db.js')
+const todoRouter = express.Router()
+
 todoRouter.get('/', async (req, res) => {
     try {
         const result = await query('select * from task')
@@ -31,18 +35,6 @@ todoRouter.delete('/delete/:id', async (req, res) => {
     } catch (error) {
         console.log('DELETE error:', error)
         res.status(500).json({ error: error.message })
-    }
-})
-todoRouter.delete('/delete/:id', async (req, res) => {
-    const id = Number(req.params.id)
-    try {
-        const result = await query(
-            'delete from task where id = $1',
-            [id])
-        res.status(200).json({ id: id })
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: error })
     }
 })
 
