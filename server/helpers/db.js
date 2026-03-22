@@ -3,12 +3,14 @@ const {Pool}=require('pg')
 
 const query = (sql, values = []) => {
     return new Promise(async(resolve, reject) => {
-        try{
+        try {
             const pool = openDb()
             const result = await pool.query(sql, values)
             resolve(result)
         } catch (error) {
-            reject(error.message)
+            console.log('DB query error:', error?.message)
+            console.log('DB error code:', error?.code)
+            reject(error)
         }
     })
 }

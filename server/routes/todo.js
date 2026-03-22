@@ -8,8 +8,11 @@ todoRouter.get('/', async (req, res) => {
         const rows = result.rows ? result.rows : []
         res.status(200).json(rows)
     } catch (error) {
-        console.log('GET error:', error)
-        res.status(500).json({ error: error.message })
+        const errMsg = error?.message || error?.toString() || 'unknown error'
+        console.log('GET error message:', errMsg)
+        console.log('GET error code:', error?.code)
+        console.log('GET error detail:', error?.detail)
+        res.status(500).json({ error: errMsg })
     }
 })
 
